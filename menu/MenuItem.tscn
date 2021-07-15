@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/font/PT_Sans-Web-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menu/MenuItem.gd" type="Script" id=3]
+[ext_resource path="res://addons/anima/components/AnimaLabel.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="MenuItem" type="Control"]
+mouse_default_cursor_shape = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+rect = Rect2( 0, 0, 0, 100 )
+values_in = 1
+color = Color( 1, 1, 1, 1 )
+is_filled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 24
+custom_constants/margin_left = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Control" parent="MarginContainer"]
+margin_left = 24.0
+margin_right = 24.0
+rect_clip_content = true
+mouse_filter = 2
+script = ExtResource( 4 )
+font = SubResource( 1 )
+align = 0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_leave"]
+[connection signal="gui_input" from="." to="." method="_on_MenuItem_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_focus"]
+[connection signal="mouse_exited" from="." to="." method="_on_focus_leave"]

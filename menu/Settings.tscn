@@ -1,0 +1,377 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://menu/button_action_pressed.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/anima/shapes/Rectangle.gd" type="Script" id=2]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="ButtonGroup" id=3]
+
+[sub_resource type="ButtonGroup" id=4]
+
+[sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="ButtonGroup" id=6]
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://menu/font/PT_Sans-Web-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = SubResource( 7 )
+
+[node name="AnimaRectangle" type="Control"]
+anchor_left = 0.11
+anchor_top = 0.32
+anchor_right = 0.809
+anchor_bottom = 0.785
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+rect = Rect2( 30, 20, 50, 50 )
+values_in = 1
+is_filled = true
+border_width = 2.0
+
+[node name="Settings" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GI" type="HBoxContainer" parent="Settings"]
+margin_right = 1342.0
+margin_bottom = 20.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/GI"]
+margin_top = 3.0
+margin_right = 400.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 400, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Global Illumination:"
+
+[node name="High" type="Button" parent="Settings/GI"]
+margin_left = 430.0
+margin_right = 714.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 1 )
+text = "High"
+
+[node name="Low" type="Button" parent="Settings/GI"]
+margin_left = 744.0
+margin_right = 1028.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 1 )
+text = "Low"
+
+[node name="Disabled" type="Button" parent="Settings/GI"]
+margin_left = 1058.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 1 )
+text = "Disabled"
+
+[node name="AA" type="HBoxContainer" parent="Settings"]
+margin_top = 50.0
+margin_right = 1342.0
+margin_bottom = 70.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/AA"]
+margin_right = 400.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Anti Aliasing:"
+
+[node name="8X" type="Button" parent="Settings/AA"]
+margin_left = 430.0
+margin_right = 635.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 2 )
+text = "8x"
+
+[node name="4X" type="Button" parent="Settings/AA"]
+margin_left = 665.0
+margin_right = 871.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 2 )
+text = "4x"
+
+[node name="2X" type="Button" parent="Settings/AA"]
+margin_left = 901.0
+margin_right = 1106.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 2 )
+text = "2x"
+
+[node name="Disabled" type="Button" parent="Settings/AA"]
+margin_left = 1136.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 2 )
+text = "Disabled"
+
+[node name="SSAO" type="HBoxContainer" parent="Settings"]
+margin_top = 100.0
+margin_right = 1342.0
+margin_bottom = 120.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Settings/SSAO"]
+margin_right = 400.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "SSAO:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High" type="Button" parent="Settings/SSAO"]
+margin_left = 430.0
+margin_right = 714.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 3 )
+text = "High"
+
+[node name="Low" type="Button" parent="Settings/SSAO"]
+margin_left = 744.0
+margin_right = 1028.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 3 )
+text = "Low"
+
+[node name="Disabled" type="Button" parent="Settings/SSAO"]
+margin_left = 1058.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 3 )
+text = "Disabled"
+
+[node name="Bloom" type="HBoxContainer" parent="Settings"]
+margin_top = 150.0
+margin_right = 1342.0
+margin_bottom = 170.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Settings/Bloom"]
+margin_right = 400.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_vertical = 1
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Bloom:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="High" type="Button" parent="Settings/Bloom"]
+margin_left = 430.0
+margin_right = 714.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 4 )
+text = "High"
+
+[node name="Low" type="Button" parent="Settings/Bloom"]
+margin_left = 744.0
+margin_right = 1028.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 4 )
+text = "Low"
+
+[node name="Disabled" type="Button" parent="Settings/Bloom"]
+margin_left = 1058.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 4 )
+text = "Disabled"
+
+[node name="Resolution" type="HBoxContainer" parent="Settings"]
+margin_top = 200.0
+margin_right = 1342.0
+margin_bottom = 220.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Settings/Resolution"]
+margin_top = 3.0
+margin_right = 400.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 400, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Resolution:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Native" type="Button" parent="Settings/Resolution"]
+margin_left = 430.0
+margin_right = 635.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 5 )
+text = "Native"
+
+[node name="1080" type="Button" parent="Settings/Resolution"]
+margin_left = 665.0
+margin_right = 871.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 5 )
+text = "1080"
+
+[node name="720" type="Button" parent="Settings/Resolution"]
+margin_left = 901.0
+margin_right = 1106.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 5 )
+text = "720"
+
+[node name="540" type="Button" parent="Settings/Resolution"]
+margin_left = 1136.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 5 )
+text = "540"
+
+[node name="Fullscreen" type="HBoxContainer" parent="Settings"]
+margin_top = 250.0
+margin_right = 1342.0
+margin_bottom = 270.0
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="Settings/Fullscreen"]
+margin_top = 3.0
+margin_right = 400.0
+margin_bottom = 17.0
+rect_min_size = Vector2( 400, 0 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="Settings/Fullscreen"]
+margin_left = 430.0
+margin_right = 871.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+group = SubResource( 6 )
+text = "Yes"
+
+[node name="No" type="Button" parent="Settings/Fullscreen"]
+margin_left = 901.0
+margin_right = 1342.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+group = SubResource( 6 )
+text = "No"
+
+[node name="HSeparator" type="HSeparator" parent="Settings"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 300.0
+margin_right = 1342.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Actions" type="HBoxContainer" parent="Settings"]
+margin_top = 350.0
+margin_right = 1342.0
+margin_bottom = 409.0
+custom_constants/separation = 50
+
+[node name="Apply" type="Button" parent="Settings/Actions"]
+margin_right = 646.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Apply"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="Settings/Actions"]
+margin_left = 696.0
+margin_right = 1342.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Cancel"

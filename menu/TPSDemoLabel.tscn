@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/anima/shapes/Line.gd" type="Script" id=1]
+[ext_resource path="res://menu/TPSDemoLabel.gd" type="Script" id=2]
+[ext_resource path="res://addons/anima/components/AnimaChars.gd" type="Script" id=3]
+[ext_resource path="res://menu/font/Lato-Bold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="TPSDemoLabel" type="VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 100, 208 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpperLine" type="Control" parent="."]
+margin_right = 240.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 1 )
+values_in = 1
+color = Color( 1, 1, 1, 1 )
+
+[node name="AnimaChars" type="HBoxContainer" parent="."]
+margin_top = 44.0
+margin_right = 240.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 120 )
+custom_constants/separation = 0
+alignment = 1
+script = ExtResource( 3 )
+label = "TPS DEMO"
+font = SubResource( 1 )
+font_color = Color( 1, 1, 1, 1 )
+
+[node name="BottomLine" type="Control" parent="."]
+margin_top = 168.0
+margin_right = 240.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 0, 40 )
+script = ExtResource( 1 )
+values_in = 1
+color = Color( 1, 1, 1, 1 )
