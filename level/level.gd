@@ -56,7 +56,6 @@ func _ready():
 	elif Settings.resolution == Settings.Resolution.RES_540:
 		var minsize = Vector2(window_size.x * 540 / window_size.y, 540.0)
 		get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_VIEWPORT, SceneTree.STRETCH_ASPECT_KEEP_HEIGHT, minsize)
-	$Player.hide()
 
 func _input(event):
 	if event.is_action_pressed("quit"):

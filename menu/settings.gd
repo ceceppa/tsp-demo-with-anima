@@ -32,8 +32,20 @@ enum Resolution {
 	NATIVE = 3,
 }
 
-const MENU_ANIMATION_SPEED := 0.15
-const LINES_ANIMATION_SPEED := 0.3
+const ANIMATION_SPEEDS = {
+	FAST = 0.15,
+	NORMAL = 0.3,
+	SLOW = 0.5
+}
+
+enum GameState {
+	IDLE,
+	MENU,
+	SETTINGS,
+	LOADING
+}
+
+var game_state: int = GameState.IDLE
 
 var gi_quality = GIQuality.LOW
 var aa_quality = AAQuality.AA_2X

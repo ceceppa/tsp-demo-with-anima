@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://menu/button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/anima/shapes/Triangle.gd" type="Script" id=2]
+[ext_resource path="res://menu/Loading.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.278431, 0.278431, 0.360784, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0901961, 0.0784314, 0.117647, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Loading" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadingLeft" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+point2 = Vector2( 100, 0 )
+point3 = Vector2( 0, 100 )
+values_in = 1
+border_width = 0.0
+border_color = Color( 1, 0, 0, 1 )
+
+[node name="LoadingRight" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+point1 = Vector2( 100, 0 )
+point2 = Vector2( 100, 100 )
+point3 = Vector2( 0, 100 )
+values_in = 1
+border_width = 0.0
+border_color = Color( 1, 0, 0, 1 )
+
+[node name="Bar" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="Bar"]
+margin_left = 876.0
+margin_top = 513.0
+margin_right = 1044.0
+margin_bottom = 566.0
+custom_fonts/font = ExtResource( 1 )
+text = "Loading..."
+
+[node name="Progress" type="ProgressBar" parent="Bar"]
+visible = false
+margin_left = 955.0
+margin_top = 530.0
+margin_right = 965.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoneTimer" type="Timer" parent="Bar"]
+wait_time = 0.5
+one_shot = true

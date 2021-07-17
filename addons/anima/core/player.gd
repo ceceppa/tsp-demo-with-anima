@@ -28,7 +28,7 @@ func play_with_delay(delay: float) -> void:
 	play()
 
 func _play(nodes_data: Array) -> void:
-	var max_duration := 0.000001
+	var max_duration: float = Anima.MINIMUM_DURATION
 
 	for data in nodes_data:
 		var node = data.node

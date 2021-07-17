@@ -124,7 +124,7 @@ func _add_frames(data: Dictionary, property: String, frames: Array, relative: bo
 		var percentage = frame.percentage if frame.has('percentage') else 100.0
 		percentage /= 100.0
 
-		var frame_duration = max(0.000001, duration * percentage)
+		var frame_duration = max(Anima.MINIMUM_DURATION, duration * percentage)
 		var diff = frame_duration - last_duration
 		var is_first_frame = true
 		var is_last_frame = percentage == 1
@@ -251,7 +251,7 @@ func _flip_animations(data: Array, animation_length) -> Array:
 		else:
 			previous_frames[node][property] = animation_data.from
 
-		animation_data._wait_time = max(0.0000001, new_wait_time)
+		animation_data._wait_time = max(Anima.MINIMUM_DURATION, new_wait_time)
 
 		new_data.push_back(animation_data)
 

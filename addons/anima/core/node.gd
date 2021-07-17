@@ -133,12 +133,12 @@ func loop_with_delay(delay: float, times: int = -1) -> void:
 func loop_times_with_delay(times: float, delay: float) -> void:
 	_do_loop(times, AnimaTween.PLAY_MODE.NORMAL, delay)
 
-func _do_loop(times: int, mode: int, delay: float = 0.00001) -> void:
+func _do_loop(times: int, mode: int, delay: float = Anima.MINIMUM_DURATION) -> void:
 	_loop_times = times
 	_should_loop = times == -1
 	_play_mode = mode
 
-	_timer.wait_time = max(0.00001, delay)
+	_timer.wait_time = max(Anima.MINIMUM_DURATION, delay)
 
 	# Can't use _anima_tween.repeat
 	# as the tween_all_completed is never called :(

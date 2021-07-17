@@ -13,7 +13,6 @@ func go_to_main_menu():
 func replace_main_scene(resource):
 	call_deferred("change_scene", resource)
 
-
 func change_scene(resource : Resource):
 	var node = resource.instance()
 

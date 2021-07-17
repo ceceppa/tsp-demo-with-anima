@@ -49,10 +49,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/anima/shapes/Rectangle.gd"
 }, {
+"base": "Control",
+"class": "AnimaShape",
+"language": "GDScript",
+"path": "res://addons/anima/shapes/Base.gd"
+}, {
 "base": "Reference",
 "class": "AnimaStrings",
 "language": "GDScript",
 "path": "res://addons/anima/utils/strings.gd"
+}, {
+"base": "Control",
+"class": "AnimaTriangle",
+"language": "GDScript",
+"path": "res://addons/anima/shapes/Triangle.gd"
 }, {
 "base": "Tween",
 "class": "AnimaTween",
@@ -73,7 +83,9 @@ _global_script_class_icons={
 "AnimaNodesProperties": "",
 "AnimaPlayer": "",
 "AnimaRectangle": "",
+"AnimaShape": "",
 "AnimaStrings": "",
+"AnimaTriangle": "",
 "AnimaTween": "",
 "Player": ""
 }

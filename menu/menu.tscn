@@ -157,6 +157,7 @@ transform = Transform( 0.803991, 0, 0, 0, 0.803991, 0, 0, 0, 0.803991, 0, 0, 0 )
 [node name="Camera" type="Camera" parent="Viewport"]
 transform = Transform( 0.871624, -0.0363083, 0.488828, 0, 0.997253, 0.0740721, -0.490175, -0.064563, 0.86923, 0.0702285, 1.22404, 2.09675 )
 
+[connection signal="loading_completed" from="UI" to="." method="_on_UI_loading_completed"]
 [connection signal="play" from="UI" to="." method="_on_play_pressed"]
 [connection signal="quit" from="UI" to="." method="_on_quit_pressed"]
 

@@ -38,6 +38,7 @@ margin_right = 24.0
 rect_clip_content = true
 mouse_filter = 2
 script = ExtResource( 4 )
+label = "Menu Item"
 font = SubResource( 1 )
 align = 0
 

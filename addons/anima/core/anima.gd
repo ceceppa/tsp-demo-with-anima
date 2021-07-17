@@ -67,6 +67,7 @@ const EASING = AnimaEasing.EASING
 
 const DEFAULT_DURATION := 0.7
 const DEFAULT_ITEMS_DELAY := 0.05
+const MINIMUM_DURATION := 0.000001
 
 var _animations_list := []
 var _custom_animations := []

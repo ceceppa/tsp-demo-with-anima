@@ -1,6 +1,6 @@
 tool
 class_name AnimaLine
-extends Control
+extends "res://addons/anima/shapes/Base.gd"
 
 export (Vector2) var from setget set_from
 export (Vector2) var to setget set_to
@@ -77,13 +77,3 @@ func set_is_full_size(is_full_size: bool) -> void:
 	full_size = is_full_size
 
 	update()
-
-func animate(anima_data: Dictionary, auto_play := true) -> AnimaNode:
-	var anima: AnimaNode = Anima.begin(self)
-
-	anima.then(anima_data)
-
-	if auto_play:
-		anima.play()
-
-	return anima
