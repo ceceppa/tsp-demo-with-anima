@@ -3,6 +3,7 @@ extends TextureRect
 signal play
 signal quit
 signal loading_completed
+signal loading_animation_completed
 
 var _viewport: Viewport
 
@@ -103,5 +104,5 @@ func _on_Settings_clicked():
 
 	$GameSettings.show_menu(_settings_button)
 
-func _on_DoneTimer_timeout():
+func _on_Loading_loading_animation_completed():
 	emit_signal('loading_completed')

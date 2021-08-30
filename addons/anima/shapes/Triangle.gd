@@ -10,15 +10,10 @@ export (Color) var color setget set_color
 export (bool) var is_filled = true setget set_is_filled
 export (float) var border_width = 1.0 setget set_border_width
 export (Color) var border_color = Color.black setget set_border_color
-export (Vector2) var border_offset = Vector2.ZERO setget set_border_offset
+#export (Vector2) var border_offset = Vector2.ZERO setget set_border_offset
 export (bool) var centered setget set_is_centered
 export (bool) var is_full_size setget set_is_full_size
 export (int) var border_radius = 0 setget set_border_radius
-
-var _anima: AnimaNode
-
-func _ready():
-	_anima = Anima.begin(self)
 
 func _draw() -> void:
 	var p1: Vector2 = _maybe_to_percentage(point1)
@@ -26,7 +21,7 @@ func _draw() -> void:
 	var p3: Vector2 = _maybe_to_percentage(point3)
 
 	var points: PoolVector2Array
-	
+
 	points.push_back(p1)
 	points.push_back(p2)
 	points.push_back(p3)
@@ -45,20 +40,6 @@ func _maybe_to_percentage(position: Vector2) -> Vector2:
 	position.y = rect_size.y * (position.y / 100)
 
 	return position
-
-func animate(data: Dictionary, auto_play := true) -> AnimaNode:
-	data.node = self
-
-	_anima.clear()
-	_anima.then(data)
-
-	if auto_play:
-		_anima.play()
-
-	return _anima
-
-func get_anima_node() -> AnimaNode:
-	return _anima
 
 func set_point1(point: Vector2) -> void:
 	point1 = point
@@ -99,11 +80,11 @@ func set_border_color(color: Color) -> void:
 	border_color = color
 
 	update()
-
-func set_border_offset(offset: Vector2) -> void:
-	border_offset = offset
-
-	update()
+#
+#func set_border_offset(offset: Vector2) -> void:
+#	border_offset = offset
+#
+#	update()
 
 func set_is_centered(new_is_centered: bool) -> void:
 	centered = new_is_centered

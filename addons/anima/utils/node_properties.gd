@@ -122,6 +122,14 @@ static func get_property_initial_value(node: Node, property: String):
 			return node.get_global_transform().y.x
 		"skew:y":
 			return node.get_global_transform().x.y
+		"rect:x":
+			return node.rect.position.x
+		"rect:y":
+			return node.rect.position.y
+		"rect:w":
+			return node.rect.size.x
+		"rect:h":
+			return node.rect.size.y
 
 	var p = property.split(':')
 
@@ -250,6 +258,30 @@ static func map_property_to_godot_property(node: Node, property: String) -> Dict
 			return {
 				property_name = "transform",
 				key = "x",
+				subkey = "y"
+			}
+		"rect:x":
+			return {
+				property_name = "rect",
+				key = "position",
+				subkey = "x"
+			}
+		"rect:y":
+			return {
+				property_name = "rect",
+				key = "position",
+				subkey = "y"
+			}
+		"rect:w":
+			return {
+				property_name = "rect",
+				key = "size",
+				subkey = "x"
+			}
+		"rect:h":
+			return {
+				property_name = "rect",
+				key = "size",
 				subkey = "y"
 			}
 

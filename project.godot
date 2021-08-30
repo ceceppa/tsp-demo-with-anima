@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "AnimaArc",
+"language": "GDScript",
+"path": "res://addons/anima/shapes/Arc.gd"
+}, {
 "base": "HBoxContainer",
 "class": "AnimaChars",
 "language": "GDScript",
 "path": "res://addons/anima/components/AnimaChars.gd"
+}, {
+"base": "Control",
+"class": "AnimaCircle",
+"language": "GDScript",
+"path": "res://addons/anima/shapes/Circle.gd"
 }, {
 "base": "Reference",
 "class": "AnimaEasing",
@@ -75,7 +85,9 @@ _global_script_classes=[ {
 "path": "res://player/player.gd"
 } ]
 _global_script_class_icons={
+"AnimaArc": "",
 "AnimaChars": "",
+"AnimaCircle": "",
 "AnimaEasing": "",
 "AnimaLabel": "",
 "AnimaLine": "",

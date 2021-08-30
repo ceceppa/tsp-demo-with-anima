@@ -170,6 +170,9 @@ func _add_frames(data: Dictionary, property: String, frames: Array, relative: bo
 
 	return _wait_time
 
+func get_animation_data() -> Array:
+	return _animation_data
+
 func get_animations_count() -> int:
 	return _animation_data.size()
 

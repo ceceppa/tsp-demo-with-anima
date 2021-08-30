@@ -13,11 +13,6 @@ export (bool) var centered setget set_is_centered
 export (bool) var is_full_size setget set_is_full_size
 export (int) var border_radius = 0 setget set_border_radius
 
-var _anima: AnimaNode
-
-func _ready():
-	_anima = Anima.begin(self)
-
 func _draw() -> void:
 	var rect_to_draw: Rect2 = rect
 	var has_border_offset = border_offset.x != 0 or border_offset.y != 0
@@ -60,22 +55,11 @@ func _draw() -> void:
 
 	draw_style_box(stylebox_border, border_rect)
 
-func animate(data: Dictionary, auto_play := true) -> AnimaNode:
-	data.node = self
-	
-	if not data.has('property'):
-		data.property = 'rect'
+func animate(anima_data: Dictionary, auto_play := true) -> AnimaNode:
+	if not anima_data.has('property'):
+		anima_data.property = "rect"
 
-	_anima.clear()
-	_anima.then(data)
-
-	if auto_play:
-		_anima.play()
-
-	return _anima
-
-func get_anima_node() -> AnimaNode:
-	return _anima
+	return .animate(anima_data, auto_play)
 
 func set_rect(new_rect: Rect2) -> void:
 	rect = new_rect

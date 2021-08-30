@@ -12,7 +12,6 @@ onready var main = ui.get_node(@"Main")
 
 onready var loading = ui.get_node(@"Loading")
 onready var loading_progress = loading.get_node(@"Progress")
-onready var loading_done_timer = loading.get_node(@"DoneTimer")
 
 func _ready():
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, Vector2(1920, 1080))
@@ -24,11 +23,12 @@ func interactive_load(loader):
 	while true:
 		var status = loader.poll()
 		if status == OK:
-			loading_progress.value = (loader.get_stage() * 100) / loader.get_stage_count()
+			var value = (loader.get_stage() * 100) / loader.get_stage_count()
+
+			loading.set_progress(value)
 			continue
 		elif status == ERR_FILE_EOF:
-			loading_progress.value = 100
-			loading_done_timer.start()
+			loading.set_progress_completed()
 			break
 		else:
 			print("Error while loading level: " + str(status))
@@ -47,7 +47,10 @@ func loading_done(loader):
 
 func _on_play_pressed():
 	Settings.game_state = Settings.GameState.LOADING
-	loading.show()
+	loading.loading()
+	
+	yield(loading, 'animation_completed')
+
 	var path = "res://level/level.tscn"
 	if ResourceLoader.has_cached(path):
 		emit_signal("replace_main_scene", ResourceLoader.load(path))

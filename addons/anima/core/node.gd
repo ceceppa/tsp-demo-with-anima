@@ -73,6 +73,36 @@ func with(data: Dictionary) -> float:
 
 	return _setup_animation(data)
 
+func also(data: Dictionary, extra_keys_to_ignore := []) -> float:
+	if _anima_tween.get_animations_count() == 0:
+		printerr('.also can be only used in after a .then or .with!')
+
+		return _last_animation_duration
+
+	var animation_data: Array = _anima_tween.get_animation_data()
+	var previous_data = animation_data[animation_data.size() - 1]
+
+	var keys_to_ignore = [
+		'_is_first_frame',
+		'_is_last_frame',
+		'_wait_time',
+		'delay',
+		'relative',
+		'_grid_node'
+	]
+
+	if previous_data.has('_grid_node'):
+		previous_data.grid = previous_data._grid_node
+
+	for key in previous_data:
+		if keys_to_ignore.find(key) >= 0 or extra_keys_to_ignore.find(key) >= 0:
+			continue
+
+		if not data.has(key):
+			data[key] = previous_data[key]
+
+	return with(data)
+
 func wait(seconds: float) -> void:
 	then({
 		node = self,

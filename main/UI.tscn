@@ -123,3 +123,4 @@ script = ExtResource( 18 )
 [connection signal="clicked" from="Main/MenuBG/MenuItems/PlayButton" to="." method="_on_Play_clicked"]
 [connection signal="clicked" from="Main/MenuBG/MenuItems/SettingsButton" to="." method="_on_Settings_clicked"]
 [connection signal="clicked" from="Main/MenuBG/MenuItems/QuitButton" to="." method="_on_Quit_clicked"]
+[connection signal="loading_animation_completed" from="Loading" to="." method="_on_Loading_loading_animation_completed"]

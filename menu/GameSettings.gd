@@ -54,8 +54,8 @@ func show_menu(menu_item: Control) -> void:
 	$Rectangle.set_rect(Rect2(menu_item.rect_global_position, menu_item.rect_size))
 
 	var anima = $Rectangle.animate({ to = final_size, duration = Settings.ANIMATION_SPEEDS.FAST }, false)
-	anima.with({ property = "border_width", to = 2, duration = Settings.ANIMATION_SPEEDS.FAST })
-	anima.with({ property = "color", to = Color.black, duration = Settings.ANIMATION_SPEEDS.FAST })
+	anima.also({ property = "border_width", to = 2 })
+	anima.also({ property = "color", to = Color.black })
 	anima.with({ node = $Overlay, property = "color", to = Color(0, 0, 0, 0.6), duration = Settings.ANIMATION_SPEEDS.FAST })
 
 	anima.with({ 
@@ -68,13 +68,10 @@ func show_menu(menu_item: Control) -> void:
 		items_delay = 0.02,
 		hide_strategy = Anima.VISIBILITY.TRANSPARENT_ONLY
 	})
-	anima.with({ 
-		group = $VBoxContainer,
+	anima.also({ 
 		property = "opacity",
 		from = 0,
 		to = 1,
-		duration = Settings.ANIMATION_SPEEDS.NORMAL,
-		items_delay = 0.02,
 	})
 
 	anima.play()

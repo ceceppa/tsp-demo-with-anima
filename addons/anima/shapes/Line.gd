@@ -8,8 +8,6 @@ export (Anima.VALUES_IN) var values_in setget set_values_in
 export (bool) var from_center setget set_from_center
 export (Color) var color setget set_color
 export (float) var line_width setget set_line_width
-export (bool) var centered setget set_is_centered
-export (bool) var full_size setget set_is_full_size
 
 func _ready():
 	connect("item_rect_changed", self, 'update')
@@ -38,6 +36,12 @@ func _draw() -> void:
 
 	draw_line(draw_from, draw_to, color, line_width, true)
 
+func animate(anima_data: Dictionary, auto_play := true) -> AnimaNode:
+	if not anima_data.has('property'):
+		anima_data.property = "to"
+
+	return .animate(anima_data, auto_play)
+
 func set_from(new_from: Vector2) -> void:
 	from = new_from
 
@@ -65,15 +69,5 @@ func set_color(new_color: Color) -> void:
 
 func set_line_width(new_width: float) -> void:
 	line_width = new_width
-
-	update()
-
-func set_is_centered(is_centered: bool) -> void:
-	centered = is_centered
-
-	update()
-
-func set_is_full_size(is_full_size: bool) -> void:
-	full_size = is_full_size
 
 	update()
